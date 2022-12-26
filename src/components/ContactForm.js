@@ -1,7 +1,13 @@
+import PropTypes from 'prop-types';
 import { Component } from 'react';
 import './Phonebook.css'
 
 class ContactForm extends Component {
+
+    static propTypes = {
+        onSubmit: PropTypes.func,
+    }
+
     state = {
         name: '',
         number: ''
@@ -26,7 +32,7 @@ class ContactForm extends Component {
     render() {
         return (
             <form className='form' onSubmit={this.formSubmitHandler}>
-                <label for='name'>Name</label>
+                <label htmlFor='name'>Name</label>
                 <input
                     onChange={this.handleNameChange}
                     value={this.state.name}
@@ -36,7 +42,7 @@ class ContactForm extends Component {
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
                 />
-                <label for='number'>Number</label>
+                <label htmlFor='number'>Number</label>
                 <input
                     onChange={this.handleNameChange}
                     value={this.state.number}
